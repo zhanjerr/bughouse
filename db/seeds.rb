@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'seeding data ...'
+
+puts 'seeing users'
+
+User.destroy_all
+
+user1 = User.create!({
+  user_name: 'root_user',
+  email: 'root@user.com',
+  password_digest: BCrypt::Password.create('1234'),
+  admin: true
+  })
+
+user2 = User.create!({
+  user_name: 'test_user',
+  email: 'test@user.com',
+  password_digest: BCrypt::Password.create('1234')
+  })

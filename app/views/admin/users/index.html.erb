@@ -1,0 +1,48 @@
+<section class="admin-users-index">
+
+  <header class="header-text">
+    <h1>All Users</h1>
+  </header>
+
+  <div class="row">
+    <div class="col l1"></div>
+    <div class="panel panel-default categories col l10">
+      <table class="bordered responsive-table highlight centered">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Admin</th>
+            <th>Make Admin</th>
+            <th>Revoke Admin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |u| %>
+            <tr>
+              <td><%= u.id %></td>
+              <td><%= u.name %></td>
+              <td><%= u.email %></td>
+              <td><%= u.admin %></td>
+              <td>
+              <% if u.admin %>
+              <% else %>
+                <%= link_to 'Make Admin', admin_user_path(u.id, :admin => true), :method => :put %>
+              <% end %>
+              </td>
+              <td>
+              <% if u.admin %>
+                <%= link_to 'Revoke Admin', admin_user_path(u.id, :admin => false), :method => :put %>
+              <% else %>
+              <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="col l1"></div>
+  </div>
+</section>
