@@ -7,3 +7,5 @@ Database: PostgreSQL 9.6 port: 5432
 
 1. Run `bundle install` to install dependencies
 2. Run `bin/rake db:create db:migrate db:seed`
+
+Run `bin/rails server` to boot up the app on localhost:3000
