@@ -1,0 +1,45 @@
+<div class="entrance-text">
+  <h1>Welcome to Bughouse! <br> <br> Please Login to continue</h1>
+</div>
+
+<%= form_tag '/login' do %>
+<div class="form-container col s4">
+  <div class="row">
+    <div class="col s4">
+
+    </div>
+    <div class="input-field col s4">
+      <%= text_field_tag :email %>
+      <label for="email">Email</label>
+    </div>
+    <div class="col s4">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s4">
+
+    </div>
+    <div class="input-field col s4">
+      <%= password_field_tag :password %>
+      <label for="password">Password</label>
+    </div>
+    <div class="col s4">
+
+    </div>
+  </div>
+
+
+  <div class="center-btn">
+    <a class="waves-effect waves-light btn" ><%= submit_tag "Submit" %></a>
+  </div>
+
+
+</div>
+
+<% end %>
+
+
+<div class="footer">
+  <footer>© 2017 Bughouse</footer>
+</div>

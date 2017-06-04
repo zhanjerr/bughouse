@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
-  resources :users, only: [:create, :new]
+  resources :users, only: [:create]
+
+  namespace :admin do
+    root to: 'users#index'
+    resources :users, only: [:update, :index]
+  end
+
 end
