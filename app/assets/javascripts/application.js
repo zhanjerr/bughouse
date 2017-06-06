@@ -13,3 +13,4 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require vendor/assets/javascript/chessboardjs-0.3.0/js/chessboard-0.3.0

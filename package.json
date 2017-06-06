@@ -1,5 +1,7 @@
 {
   "name": "bughouse",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "chessboardjs": "0.0.1"
+  }
 }
