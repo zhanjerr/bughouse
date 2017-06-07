@@ -7,7 +7,7 @@
  *
  * Date: 10 Aug 2013
  */
-
+console.log('got in here');
 // start anonymous scope
 ;(function() {
 'use strict';
