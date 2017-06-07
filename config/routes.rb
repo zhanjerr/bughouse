@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :users, only: [:create]
+  resources :puzzles, only: [:index, :show]
 
   namespace :admin do
     root to: 'users#index'
     resources :users, only: [:update, :index]
   end
+
 
 end
