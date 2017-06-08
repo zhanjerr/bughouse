@@ -1,1 +1,24 @@
 //=require chessboard.min
+
+.chessboard {
+  width: 500px;
+  float: left;
+  margin-right: 10px;
+  .spare-pieces-7492f {
+    margin-bottom: 0.2em;
+    span {
+      background-color: #ffd32b;
+      border: 0.5px solid #5a5a5a;
+      margin-right: 0.25em;
+      width: 1em;
+      text-align: center;
+      font-weight: bold;
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+    }
+    [data-piece = 'wP']{
+      /*display: none;*/
+    }
+  }
+}
