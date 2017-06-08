@@ -566,6 +566,8 @@ function createElIds() {
     var blackPiece = 'b' + pieces[i];
     SPARE_PIECE_ELS_IDS[whitePiece] = whitePiece + '-' + createId();
     SPARE_PIECE_ELS_IDS[blackPiece] = blackPiece + '-' + createId();
+    SPARE_COUNT_ELS_IDS[whitePiece] = whitePiece + '-' + createId();
+    SPARE_COUNT_ELS_IDS[blackPiece] = whitePiece + '-' + createId();
   }
 }
 
@@ -597,7 +599,7 @@ function spareCountHtml(piece) {
   if(typeof cfg.spareCounts !== 'object') {
     return "";
   }
-  return '<span id="'+ SPARE_COUNT_ELS_IDS[piece] +'" style="font-weight:bold; position: absolute;bottom: -2px;right: -2px;">'+ cfg.spareCounts[piece] +'</span>';
+  return '<span id="'+ SPARE_COUNT_ELS_IDS[piece] +'" >'+ cfg.spareCounts[piece] +'</span>';
 }
 
 /*
@@ -717,6 +719,9 @@ function buildSparePieces(color) {
 
   var html = '';
   for (var i = 0; i < pieces.length; i++) {
+    if(typeof cfg.spareCounts === 'object' && cfg.spareCounts[pieces[i]] <= 0) {
+      continue;
+    }
     html += '<div style="width: ' + SQUARE_SIZE + 'px;' +
       'height: ' + SQUARE_SIZE + 'px;float:left;position:relative;">' +
       buildPiece(pieces[i], false, SPARE_PIECE_ELS_IDS[pieces[i]]) +
@@ -1329,7 +1334,11 @@ function stopDraggedPiece(location) {
   }
 
   if(cfg.spareCounts && DRAGGED_PIECE_SOURCE === 'spare' && action === 'drop'){
-    $("#" + SPARE_COUNT_ELS_IDS[DRAGGED_PIECE]).html(--cfg.spareCounts[DRAGGED_PIECE]);
+    if(--cfg.spareCounts[DRAGGED_PIECE] <= 0){
+      $("#" + SPARE_COUNT_ELS_IDS[DRAGGED_PIECE]).parent().remove();
+    } else {
+      $("#" + SPARE_COUNT_ELS_IDS[DRAGGED_PIECE]).html(cfg.spareCounts[DRAGGED_PIECE]);
+    }
   }
 }
 
