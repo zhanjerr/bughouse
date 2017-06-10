@@ -38,4 +38,16 @@ puzzle1 = Puzzle.create!({
   board2_FEN: 'rnbqkb1r/ppp2ppp/5n2/3p4/2PP4/5N2/PP3PPP/RNBQKB1R',
   board1_spare: { 'wK':0, 'wQ':0, 'wR':0, 'wB':0, 'wN':0, 'wP':1, 'bK':0, 'bQ':0, 'bR':0, 'bB':0, 'bN':0, 'bP':1 },
   board2_spare: { 'wK':0, 'wQ':0, 'wR':0, 'wB':0, 'wN':1, 'wP':1, 'bK':0, 'bQ':0, 'bR':0, 'bB':0, 'bN':1, 'bP':1 }
-  })
+})
+
+puzzle2 = Puzzle.create!({
+  title: 'T2',
+  difficulty: 1,
+  # explanation: '',
+  previous_move: 'Board A: 1. … Kf8',
+  instruction: 'Alex to play and win',
+  board1_FEN: 'rnbq1k1r/pppp1Bp1/5n1p/4p1N1/4P3/8/PPPP1KPP/RNBQ3R',
+  board2_FEN: 'rnbqk2r/pp3ppp/2p2n2/3p4/3P4/2PB1N2/P1P2PPP/R1BQK2R',
+  board1_spare: { 'wK':0, 'wQ':0, 'wR':0, 'wB':0, 'wN':1, 'wP':1, 'bK':0, 'bQ':0, 'bR':0, 'bB':1, 'bN':0, 'bP':1 },
+  board2_spare: { 'wK':0, 'wQ':0, 'wR':0, 'wB':1, 'wN':0, 'wP':1, 'bK':0, 'bQ':0, 'bR':0, 'bB':0, 'bN':0, 'bP':1 }
+})
