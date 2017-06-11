@@ -18,13 +18,15 @@ ActiveRecord::Schema.define(version: 20170609160623) do
   create_table "puzzles", force: :cascade do |t|
     t.string "title", null: false
     t.integer "difficulty", limit: 2, null: false
-    t.text "explanation"
-    t.string "previous_move"
     t.text "instruction"
+    t.string "previous_move"
+    t.text "description"
     t.string "board1_FEN", null: false
     t.string "board2_FEN", null: false
     t.json "board1_spare", null: false
     t.json "board2_spare", null: false
+    t.text "explanation"
+    t.string "solution", null: false, array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

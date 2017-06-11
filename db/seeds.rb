@@ -37,7 +37,8 @@ puzzle1 = Puzzle.create!({
   board1_FEN: 'r1bq1bkr/ppp3pp/2n1p3/3Bp3/8/5Q2/PPPP1PPP/RNB1K2R',
   board2_FEN: 'rnbqkb1r/ppp2ppp/5n2/3p4/2PP4/5N2/PP3PPP/RNBQKB1R',
   board1_spare: { 'wK':0, 'wQ':0, 'wR':0, 'wB':0, 'wN':0, 'wP':1, 'bK':0, 'bQ':0, 'bR':0, 'bB':0, 'bN':0, 'bP':1 },
-  board2_spare: { 'wK':0, 'wQ':0, 'wR':0, 'wB':0, 'wN':1, 'wP':1, 'bK':0, 'bQ':0, 'bR':0, 'bB':0, 'bN':1, 'bP':1 }
+  board2_spare: { 'wK':0, 'wQ':0, 'wR':0, 'wB':0, 'wN':1, 'wP':1, 'bK':0, 'bQ':0, 'bR':0, 'bB':0, 'bN':1, 'bP':1 },
+  solution: [ '2/spare/wP/f7' ]
 })
 
 puzzle2 = Puzzle.create!({
@@ -49,5 +50,6 @@ puzzle2 = Puzzle.create!({
   board1_FEN: 'rnbq1k1r/pppp1Bp1/5n1p/4p1N1/4P3/8/PPPP1KPP/RNBQ3R',
   board2_FEN: 'rnbqk2r/pp3ppp/2p2n2/3p4/3P4/2PB1N2/P1P2PPP/R1BQK2R',
   board1_spare: { 'wK':0, 'wQ':0, 'wR':0, 'wB':0, 'wN':1, 'wP':1, 'bK':0, 'bQ':0, 'bR':0, 'bB':1, 'bN':0, 'bP':1 },
-  board2_spare: { 'wK':0, 'wQ':0, 'wR':0, 'wB':1, 'wN':0, 'wP':1, 'bK':0, 'bQ':0, 'bR':0, 'bB':0, 'bN':0, 'bP':1 }
+  board2_spare: { 'wK':0, 'wQ':0, 'wR':0, 'wB':1, 'wN':0, 'wP':1, 'bK':0, 'bQ':0, 'bR':0, 'bB':0, 'bN':0, 'bP':1 },
+  solution: [ '2/spare/wN/g6' ]
 })
