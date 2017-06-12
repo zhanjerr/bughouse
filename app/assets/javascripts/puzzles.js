@@ -1,22 +1,19 @@
 //= require chessboard
-
-
-console.log('this should not be called yet');
-
 $(document).ready(function() {
 
-// var board1 = ChessBoard('board1', {
-//   position: 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R',
-//   pieceTheme: '/assets/chesspieces/wikipedia/{piece}.png'
-// });
+console.log(gon.puzzle.solution);
 
-// var board2 = ChessBoard('board2', {
-//   position: 'r1k4r/p2nb1p1/2b4p/1p1n1p2/2PP4/3Q1NB1/1P3PPP/R5K1',
-//   pieceTheme: '/assets/chesspieces/wikipedia/{piece}.png',
-//   sparePieces: true
-// });
+// const
 
-var onDrop = function(source, target, piece, newPos, oldPos, orientation) {
+const onDragStart = function(source, piece, position, orientation) {
+  if ((orientation === 'white' && piece.search(/^w/) === -1) ||
+      (orientation === 'black' && piece.search(/^b/) === -1)) {
+    return false;
+  }
+};
+
+const onDrop1 = function(source, target, piece, newPos, oldPos, orientation) {
+  console.log("Board 1:")
   console.log("Source: " + source);
   console.log("Target: " + target);
   console.log("Piece: " + piece);
@@ -26,15 +23,40 @@ var onDrop = function(source, target, piece, newPos, oldPos, orientation) {
   console.log("--------------------");
 };
 
-var cfg = {
+const onDrop2 = function(source, target, piece, newPos, oldPos, orientation) {
+  console.log("Board 2:")
+  console.log("Source: " + source);
+  console.log("Target: " + target);
+  console.log("Piece: " + piece);
+  console.log("New position: " + newPos);
+  console.log("Old position: " + oldPos);
+  console.log("Orientation: " + orientation);
+  console.log("--------------------");
+};
+
+let cfg1 = {
+  orientation: 'white',
   draggable: true,
-  position: 'start',
-  onDrop: onDrop,
+  position: gon.puzzle.board1_FEN,
+  onDrop: onDrop1,
+  onDragStart: onDragStart,
   pieceTheme: '/assets/chesspieces/wikipedia/{piece}.png',
   sparePieces: true,
-  spareCounts: { 'wK':0, 'wQ':0, 'wR':0, 'wB':0, 'wN':2, 'wP':1, 'bK':0, 'bQ':0, 'bR':0, 'bB':0, 'bN':0, 'bP':0 },
+  spareCounts: gon.puzzle.board1_spare,
 };
-var board = ChessBoard('board', cfg);
 
+let cfg2 = {
+  orientation: 'black',
+  draggable: true,
+  onDragStart: onDragStart,
+  position: gon.puzzle.board2_FEN,
+  onDrop: onDrop2,
+  pieceTheme: '/assets/chesspieces/wikipedia/{piece}.png',
+  sparePieces: true,
+  spareCounts: gon.puzzle.board2_spare,
+}
+
+let board1 = ChessBoard('board1', cfg1);
+let board2 = ChessBoard('board2', cfg2);
 
 });
