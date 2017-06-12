@@ -1,9 +1,28 @@
 //= require chessboard
+
+const parsed = gon.puzzle.solution[0].split('/');
+const solution = {
+  player: parsed[0],
+  piece: parsed[1],
+  source: parsed[2],
+  target: parsed[3]
+};
+
+console.log(solution);
+
+
 $(document).ready(function() {
 
-console.log(gon.puzzle.solution);
 
-// const
+const validate = function(player, piece, source, target){
+
+  if (player == solution.player && piece == solution.piece && source == solution.source && target == solution.target){
+    return 'You got it sunny';
+  }
+  else {
+    return 'Still listening';
+  }
+};
 
 const onDragStart = function(source, piece, position, orientation) {
   if ((orientation === 'white' && piece.search(/^w/) === -1) ||
@@ -13,14 +32,7 @@ const onDragStart = function(source, piece, position, orientation) {
 };
 
 const onDrop1 = function(source, target, piece, newPos, oldPos, orientation) {
-  console.log("Board 1:")
-  console.log("Source: " + source);
-  console.log("Target: " + target);
-  console.log("Piece: " + piece);
-  console.log("New position: " + ChessBoard.objToFen(newPos));
-  console.log("Old position: " + ChessBoard.objToFen(oldPos));
-  console.log("Orientation: " + orientation);
-  console.log("--------------------");
+  console.log(validate(1, piece, source, target));
 };
 
 const onDrop2 = function(source, target, piece, newPos, oldPos, orientation) {
@@ -54,7 +66,7 @@ let cfg2 = {
   pieceTheme: '/assets/chesspieces/wikipedia/{piece}.png',
   sparePieces: true,
   spareCounts: gon.puzzle.board2_spare,
-}
+};
 
 let board1 = ChessBoard('board1', cfg1);
 let board2 = ChessBoard('board2', cfg2);
