@@ -2,7 +2,7 @@ class CreatePuzzles < ActiveRecord::Migration[5.1]
   def change
     create_table :puzzles do |t|
       t.string :title, null:false
-      t.integer :difficulty, limit:2, null:false
+      t.integer :complexity, limit:2, null:false
       t.text :instruction
       t.string :previous_move
       t.text :description

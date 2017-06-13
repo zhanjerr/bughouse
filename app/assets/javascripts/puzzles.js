@@ -1,4 +1,4 @@
-//= require chessboard
+$(document).ready(function() {
 
 const parsed = gon.puzzle.solution[0].split('/');
 const solution = {
@@ -8,15 +8,10 @@ const solution = {
   target: parsed[3]
 };
 
-console.log(solution);
-
-
-$(document).ready(function() {
-
-
 const validate = function(player, piece, source, target){
 
   if (player == solution.player && piece == solution.piece && source == solution.source && target == solution.target){
+    $("div.solution").toggleClass("show");
     return 'You got it sunny';
   }
   else {
@@ -36,14 +31,7 @@ const onDrop1 = function(source, target, piece, newPos, oldPos, orientation) {
 };
 
 const onDrop2 = function(source, target, piece, newPos, oldPos, orientation) {
-  console.log("Board 2:")
-  console.log("Source: " + source);
-  console.log("Target: " + target);
-  console.log("Piece: " + piece);
-  console.log("New position: " + newPos);
-  console.log("Old position: " + oldPos);
-  console.log("Orientation: " + orientation);
-  console.log("--------------------");
+  console.log(validate(2, piece, source, target));
 };
 
 let cfg1 = {
