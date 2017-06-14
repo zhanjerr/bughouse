@@ -1,15 +1,16 @@
 <%= stylesheet_link_tag :puzzles %>
 <%= javascript_include_tag :puzzles %>
-<div id="board1" class='chessboard'></div>
-<div id="board2" class='chessboard'></div>
+
+<div class="puzzle">
+  <div id="board1" class='chessboard'></div>
+  <div id="board2" class='chessboard'></div>
+</div>
+<div class="solution" >
+  <p>That's correct!</p>
+  <p><%= @puzzle.explanation %></p>
+  <span><%= link_to("Next Puzzle", @puzzle.next) if @puzzle.next %></span>
+</div>
 <div style="clear:both"></div>
 
 <p><%= @puzzle.id %></p>
 <%= @puzzle.previous_move %>
-
-<div class="solution" >
-<p>That's correct!</p>
-<p><%= @puzzle.explanation %></p>
-<span><%= link_to("Previous Puzzle", @puzzle.previous) if @puzzle.previous %></span>
-<span><%= link_to("Next Puzzle", @puzzle.next) if @puzzle.next %></span>
-</div>

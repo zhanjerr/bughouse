@@ -1,24 +1,25 @@
 //=require chessboard.min
 
-.chessboard {
-  width: 500px;
-  float: left;
-  margin-right: 10px;
-  .spare-pieces-7492f {
-    margin-bottom: 0.2em;
-    span {
-      background-color: #ffd32b;
-      border: 0.5px solid #5a5a5a;
-      margin-right: 0.25em;
-      width: 1em;
-      text-align: center;
-      font-weight: bold;
-      position: absolute;
-      bottom: 0px;
-      right: 0px;
-    }
-    [data-piece = 'wP']{
-      /*display: none;*/
+.puzzle{
+  width: auto;
+  .chessboard {
+    z-index: 10;
+    width: 40%;
+    float: left;
+    margin: 1em;
+    .spare-pieces-7492f {
+      margin-bottom: 0.2em;
+      span {
+        background-color: #ffd32b;
+        border: 0.5px solid #5a5a5a;
+        margin-right: 0.25em;
+        width: 1em;
+        text-align: center;
+        font-weight: bold;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+      }
     }
   }
 }
@@ -27,7 +28,12 @@
   border: 0.1px solid #5a5a5a;
   width: 20%;
   text-align: center;
-  /*display: none;*/
+  display: none;
+  z-index: 100;
+  position: absolute;
+  background: #b0e0ec;
+  margin-left: 35%;
+  margin-top: 5em;
 }
 
 .show {
