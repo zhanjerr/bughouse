@@ -1,14 +1,18 @@
-<%= stylesheet_link_tag :puzzles %>
 <%= javascript_include_tag :puzzles %>
+<%= stylesheet_link_tag :puzzles %>
 
 <div class="puzzle">
   <div id="board1" class='chessboard'></div>
   <div id="board2" class='chessboard'></div>
 </div>
-<div class="solution" >
+<div class="solution correct" >
   <p>That's correct!</p>
   <p><%= @puzzle.explanation %></p>
   <span><%= link_to("Next Puzzle", @puzzle.next) if @puzzle.next %></span>
+</div>
+<div class="solution wrong">
+  <p>Are you sure about that?</p>
+  <span><%= link_to "Try again", "/puzzles/#{@puzzle.id}" %></span>
 </div>
 <div style="clear:both"></div>
 
